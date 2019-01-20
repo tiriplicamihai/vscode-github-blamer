@@ -1,0 +1,124 @@
+{
+	"name": "vscode-github-blamer",
+	"displayName": "Github Blamer",
+	"description": "Open and copy the blame and github links from your editor context.",
+	"version": "1.0.0",
+	"author": {
+        "name": "Mihai Tiriplica",
+        "email": "tiriplica.mihai@gmail.com"
+    },
+	"engines": {
+		"vscode": "^1.25.0"
+	},
+	"keywords": [
+		"blame",
+		"open github",
+		"copy github",
+		"github"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.openInGitHubMaster",
+				"title": "Open In GitHub (Master)"
+			},
+			{
+				"command": "extension.openBlameInGitHubMaster",
+				"title": "Open Blame In GitHub (Master)"
+			},
+			{
+				"command": "extension.copyGitHubMaster",
+				"title": "Copy GitHub Link (Master)"
+			},
+			{
+				"command": "extension.copyGitHubBlameMaster",
+				"title": "Copy GitHub Blame Link (Master)"
+			},
+			{
+				"command": "extension.openInGitHub",
+				"title": "Open In GitHub (Current Branch)"
+			},
+			{
+				"command": "extension.openBlameInGitHub",
+				"title": "Open Blame In GitHub (Current Branch)"
+			},
+			{
+				"command": "extension.copyGitHub",
+				"title": "Copy GitHub Link (Current Branch)"
+			},
+			{
+				"command": "extension.copyGitHubBlame",
+				"title": "Copy GitHub Blame Link (Current Branch)"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "extension.openInGitHubMaster",
+					"title": "Open In GitHub (Master)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.openBlameInGitHubMaster",
+					"title": "Open Blame In GitHub (Master)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.copyGitHubMaster",
+					"title": "Copy GitHub Link (Master)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.copyGitHubBlameMaster",
+					"title": "Copy GitHub Blame Link (Master)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.openInGitHub",
+					"title": "Open In GitHub (Current Branch)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.openBlameInGitHub",
+					"title": "Open Blame In GitHub (Current Branch)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.copyGitHub",
+					"title": "Copy GitHub Link (Current Branch)",
+					"group": "GitHub Blamer"
+				},
+				{
+					"command": "extension.copyGitHubBlame",
+					"title": "Copy GitHub Blame Link (Current Branch)",
+					"group": "GitHub Blamer"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "yarn run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.25",
+		"tslint": "^5.8.0",
+		"typescript": "^3.1.4",
+		"vscode": "^1.1.25"
+	},
+	"dependencies": {
+		"@types/parse-git-config": "^3.0.0",
+		"parse-git-config": "^3.0.0"
+	}
+}
