@@ -40,6 +40,12 @@ function getRepoUrl(repoPath: string): (string|null) {
 		return null;
 	}
 
+	if (originURL.startsWith("https://")) {
+		// HTTPS origin.
+		return originURL.replace(".git", "");
+	}
+
+	// SSH origin.
 	const urlParts = originURL.split('@')[1].split(':');
 
 	return "https://" + urlParts[0] + "/" + urlParts[1].replace(".git", "");
